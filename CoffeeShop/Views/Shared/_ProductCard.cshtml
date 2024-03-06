@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Product>
+@foreach (var p in @Model)
+{
+    <div class="item features-image сol-12 col-md-6 col-lg-4">
+        <div class="item-wrapper">
+            <div class="item-img">
+                <img src="@p.ImageUrl" alt="Coffee Shop" title="">
+            </div>
+            <div class="item-content">
+
+                <h6 class="item-subtitle mbr-fonts-style mt-1 display-7">
+                    <a asp-controller="Products" asp-action="Details" asp-route-id="@p.Id">
+                        <strong>@p.Name</strong>
+                    </a>
+                </h6>
+                <p class="mbr-text mbr-fonts-style mt-3 display-7">@p.Price.ToString("c")</p>
+            </div>
+            <div class="mbr-section-btn item-footer mt-2"><a 
+                asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-pId="@p.Id"
+                class="btn item-btn btn-primary display-4" target="_self"><span class="mbrib-cart-add mbr-iconfont mbr-iconfont-btn"></span>Add to cart&nbsp;</a></div>
+        </div>
+    </div>
+}
